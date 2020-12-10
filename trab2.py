@@ -1,4 +1,5 @@
 #### IMPORTS NECESSÁRIOS PARA O SCRIPT FUNCIONAR #####
+import os
 import cv2 as cv
 import argparse
 import re
@@ -48,6 +49,11 @@ if __name__ == "__main__":
     }
     histograms = []             
     
+
+    os.system('clear') or None
+
+    print('\n\n O program está em execução, aguarde um momento')
+
     for i in range(0,tam):
         
         # reset dos Índices do maior percentual de cada método
@@ -119,17 +125,19 @@ if __name__ == "__main__":
         maiorCorrel = -1                # -1 é o pior caso possível, imagem mais diferente
         maiorChisqr = float('inf')    # quanto maior o número mais diferente a imagem é
         maiorBhatta = 1                 # 1 é o pior caso possível, imagem mais diferente
-        maiorInter = 0 
+        maiorInter = 0                  # quanto menor o valor, mais diferente a imagem é
 
+
+    os.system('clear') or None
 
     print('\n\no número total de acertos com o método Correlation é: {}/{}'.format(acertoCorrel, 14))
-    print('Percentual de acerto: {:.2f}%'.format(acertoCorrel/14*100))
+    print('Percentual de acerto do Intersection é: {:.2f}%'.format(acertoCorrel/14*100))
 
     print('\n\no número total de acertos com o método ChiSquare é: {}/{}'.format(acertoChisqr, 14))
-    print('Percentual de acerto: {:.2f}%'.format(acertoChisqr/14*100))
+    print('Percentual de acerto Chi-Square é: {:.2f}%'.format(acertoChisqr/14*100))
 
     print('\n\no número total de acertos com o método Bhattacharyya é: {}/{}'.format(acertoBhatta, 14))
-    print('Percentual acerto: {:.2f}%'.format(acertoBhatta/14*100))
+    print('Percentual de acerto bhattacharyya é: {:.2f}%'.format(acertoBhatta/14*100))
 
     print('\n\no número total de acertos com o método Inter é: {}/{}'.format(acertoInter, 14))
-    print('Percentual acerto: {:.2f}%'.format(acertoInter/14*100))
+    print('Percentual de acerto do Intersection é: {:.2f}%'.format(acertoInter/14*100))
